@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="thisApp">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,8 +10,9 @@
   <meta name="huasu" content="author">
 
   <!-- Boot Strap: http://getbootstrap.com/getting-started/#template -->
-  <!-- <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css">   -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">  
+<!--   <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+ -->
   <!-- Optional theme -->
 <!--   <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap-theme.min.css">
  -->
@@ -26,21 +27,56 @@
   <![endif]-->
 
 </head>
-<body>
+<body ng-app="thisApp" ng-cloak>
   <div ng-controller="appCtrl">
-    <h1>Template page with angular</h1>
-    <section>
-      <input role="textbox" ng-model="echo"></input>
-      {{echo || 'No message yet.'}}
-    </section>
-    <section>
-      <div>
-        {{message}}
-      </div>
-    </section>
-  </div><!-- end appCtrl -->
+
+
+    <div class="text-center" >
+        <h1>Template page with angular</h1>   
+    </div>
+
+  <uib-tabset active="active">
+    <uib-tab index="0" heading="Tab1">
+    <h1></h1>
+    <div class="text-center pagination-centered">
+    Static content
+    
+      <form class="form-inline">
+        <div class="row">
+          <input type="text" class="input-large" ng-model="project" uib-typeahead="word for word in typeahead_values| filter:$viewValue | limitTo:8"></input>
+
+          <button type="submit" class="btn">Go</button>
+        </div>
+      </form>
+    </div>
+  </uib-tab>
+    <uib-tab index="1" heading="Tab1" >
+        <h1>Maxwell</h1>
+
+      {{tab.content}}
+    </uib-tab>
+    <uib-tab index="2" heading="Tab2" >
+        <h1></h1>
+
+      {{tab.content}}
+    </uib-tab>
+
+  </uib-tabset>
+
+<!-- end appCtrl -->
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script> // for material-->
+  <!-- <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script> // for material -->
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script> -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/1.3.2/ui-bootstrap-tpls.min.js"></script>
+
+  
+
+
+
   <script src="static/js/app-ng.js"></script>
   <!-- <script src="js/directives/app-ng-directives.js"></script>
   // <script src="js/services/app-ng-services.js"></script> -->
